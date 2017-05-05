@@ -1,0 +1,52 @@
+LINear-REGRESsion 1.0 READ ME
+FOR TI EXTENDED BASIC
+BY ROBERT LOCK (RobertLM78, beannachtai@hotmail.com)
+JULY 2014
+LICENSE: GPL 3.0
+
+***************************
+*** GENERAL INFORMATION ***
+***************************
+Thank you for taking a look at LIN-REGRES 1.0 for Extended BASIC.  LIN-REGRES
+can perform a least squares linear regression on data points that you enter 
+or load from a DIS/VAR 80 file (without CRs).
+
+**************************
+*** WRITING DATA FILES ***
+**************************
+If you decide to write a data file to load, there must be at least *one* space
+between the independent and dependent variables, and the independent variable 
+must start at column 1, and not exceed column 40. For example:
+
+5.034 10.3
+6.73 15.23
+7.54 18.65
+...etc
+
+would be three acceptable rows, while:
+
+   5.034 10.3
+   6.73 15.23
+   7.54 18.65
+   ...etc
+
+	* OR *
+
+5.0340203289834793240093908913090120212131 10.30840239809342342343984
+6.730034324239483209840392843902803928402398439 15.2309843732790342
+7.540980398403893209374093740374932748362387 18.65039473473289739873343
+...etc
+
+would not be acceptable.  (The latter example being rather pointless anyway,
+since the TI truncates numbers after about ~10 places).
+
+Other than to follow those rules for data files, you can pretty much be as 
+sloppy as you'd like in making them, the program will figure out the rest :).
+
+****************************
+*** EXPORTING DATA FILES ***
+****************************
+When the program has finished calculating the regression, it will give you the
+option to export the data file, the exported file also contains the results,
+and is re-loadable from program for use at a later time.
+
