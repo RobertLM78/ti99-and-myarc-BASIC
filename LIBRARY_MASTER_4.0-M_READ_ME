@@ -1,0 +1,86 @@
+LIBRARY MASTER 4.0-M READ ME
+FOR MYARC EXTENDED BASIC
+BY ROBERT LOCK (RobertLM78, beannachtai@hotmail.com)
+JULY 2014
+LICENSE: GPL 3.0
+
+***************************
+*** GENERAL INFORMATION ***
+***************************
+Thank you for taking a look at Library Master 4.0-M for Myarc Ext. Basic.
+Library Master 4.0-M can store about 400 titles with up to 3 authors per title.
+The data is stored in a file named LIBCAT, in RELATIVE,INTERNAL,FIXED 108 
+format.
+The most critical modification that will need to be made initially are the 
+lines opening the data file.  Adjust the paths as necessary - see lines 2750, 
+2790, 2910, and 2950.
+NOTE for EXISTING 'LIBCAT' files from VERSION 3.x, run the FILEMOD program 
+first before starting up Library Master 4.0-M.  This will modify the 0th record 
+on the file and set it to the number of records on the file (in string form).
+It is recommended to make a backup of the LIBCAT first, and don't forget to 
+change the path names on lines 110 and 190 of the FILEMOD program. Alternatively
+you can modify REC 0 yourself using Library Master 3.x to update the file, if
+you have kept track of record numbers by hand as the version 3.x 'required'.
+
+****************************
+*** NEW & ADDED FEATURES ***
+****************************
+Library Master 4.0-M introduces a new approach, and loads the entire file into
+memory in four different arrays.  This speeds things up considerably.  In 
+addition to utilizing extra memory available, this new version introduces two
+new functions to the program, a Title Browse and a sort to alphabetize the 
+Titles. 
+
+******************************
+*** UPDATING THE DATA FILE ***
+******************************
+Upon selecting UPDATE DATA FILE (#2 in the L/S/U menu), you will be prompted to
+enter a password.  The default password is PASSWORD (see line 3100 to change 
+this).  A password is there to provide some  "protection"  from  unwanted  or 
+improperly entered records.   Updating  the data file is done by establishing a
+for-loop.  You then will be prompted to input the first record number to be 
+entered, then the last record number to be entered (e.g. X to X for entering 
+one record).  The program clears the screen and then input prompts are given for
+the information about the book:
+
+AUTHOR #1(14): 
+AUTHOR #2:
+AUTHOR #3:
+TITLE(39): 
+SUBJECT(3): 
+NOTES(9): 
+
+Where the numbers in parentheses are the maximum number of characters allowed 
+per entry.  You may choose to enter just the author's last name, or last name 
+and first initial¹.  For more on subjects, see that section of this READ ME.  
+NOTES section is a small field of 9 characters max length for additional notes.
+IMPORTANT: you cannot enter more than one title of the same name in the file, 
+and will be prompted to enter a different title if a duplicate is found. 
+IMPORTANT NOTE: unlike version 3.x, this version requires that you SAVE the data
+before exiting - it does not take place automatically like version 3.x, since
+the data are viewed and manipulated in memory.
+
+**********************
+*** ABOUT SUBJECTS ***
+**********************
+This section of the program will take some adjustments to suite personal needs.
+The section of the program that is of interest are lines 320, 630-700 and 2150-
+2200.  These lines control the subject, so set them to match the kind of 
+subjects in your library.  Of course, if there are not enough categories, you 
+can always insert additional lines as necessary.  NOTE: the program is set up 
+to use a 3 character long abbreviation for the subject, so you will want to plan
+your subject abbreviations for that condition.  Press AID to view subjects and 
+BEGIN to start the search.
+
+
+**********************************
+** AUTHOR AND SUBJECT SEARCHING **
+**********************************
+Use PROC'D to step through 'hits' in the search.  Press PROC'D until the cursor
+re-appears or press BEGIN to start another search. Additionally, if you wish to
+quit to the main menu while hit-stepping you may press BACK.  (Hit-stepping, of
+course, is limited to these searches - as you may recall, the titles are all 
+unique).
+--------------------------------------------------------------------------------
+1. If you decide to enter a first intial, your searches will have include the 
+intial as well.

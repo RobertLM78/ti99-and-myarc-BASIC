@@ -1,0 +1,152 @@
+100 !*** ROF IS MAX. NO. ***
+110 ROF=400
+120 !*** RECORDS ON FILE ***
+130 !***********************
+140 !**   LIBRARY MASTER  **
+150 !**    VERSION 4.0    **
+160 !**     JULY 2014     **
+170 !** FOR RICH XBASIC   **
+180 !**  BY ROBERT LOCK   **
+190 !**    ROBERTLM78     **
+200 !***********************
+210 !*********************
+220 !***  SET DISPLAY  ***
+230 !*********************
+240 CALL CLEAR :: CALL SCREEN(5)
+250 FOR CS=1 TO 12 :: CALL COLOR(CS,16,2) :: NEXT CS
+260 CALL COLOR(0,5,1) :: CALL COLOR(13,12,2)
+270 U$="0000FFFF00000000" :: CUR$="FCFCFCFCFCFCFCFC"
+280 CALL CHAR(128,U$) :: CALL CHAR(30,CUR$)
+290 !*********************
+300 !** INIT STRING VAR.**
+310 !*********************
+320 DIM ATA$(401,3),TTA$(401),SBJA$(15),NTA$(401),MITEM$(12),TMP$(401)
+330 !** MAIN MENU ITEMS **
+340 !*********************
+350 RESTORE 360 :: FOR L=0 TO 4 :: READ MITEM$(L)
+360 DATA Library Master Menu,1) By Author,2) By Title,3) Browse Titles,4) By Subject
+370 NEXT L :: RESTORE 390
+380 FOR L=5 TO 8 :: READ MITEM$(L)
+390 DATA 5) Sort File by Title,6) LOAD/UPDATE/SAVE File,7) Quit to RXB,8) Quit to FWEB
+400 NEXT L :: RESTORE 440
+410 !**  UPDATE MENU  **
+420 !**** L=9 TO 11 ****
+430 FOR L=9 TO 11 :: READ MITEM$(L)
+440 DATA 1) LOAD File,2) UPDATE File,3) SAVE File
+450 NEXT L :: RESTORE 490
+460 !*** SPLASH SCREEN ***
+470 !*********************
+480 READ LM4$,VER$,BY$,CONT$
+490 DATA Library Master,Version 4.0,By RobertLM78,Press SPACE to continue
+500 RESTORE 510 :: READ RXB$
+510 DATA Written for Rich Ext. Basic
+520 !***  HELP ITEMS  ***
+530 !********************
+540 RESTORE 550 :: READ SGTN$,CHKSP$
+550 DATA Suggestions:,-use correct spelling
+560 RESTORE 570 :: READ EEIC$,CLRSC$
+570 DATA -use the correct criteria for search mode,Press'DEL'to clear screen
+580 RESTORE 590 :: READ BK$,AID$
+590 DATA Press 'BACK' to search menu,Press 'AID' to view subjects
+600 RESTORE 610 :: READ NPTL1$
+610 DATA NOTE: Do not use punctuation
+620 RESTORE 630 :: READ NPTL2$
+630 DATA in title entry and enter as much of title as possible
+640 NPTL$=NPTL1$&NPTL2$
+650 !*** SUBJECT ITEMS ***
+660 !*********************
+670 RESTORE 680 :: FOR L=1 TO 14 :: READ SBJA$(L)
+680 DATA ART,FIC,GNF,HF,HST,IRE,MUS,POL,PTY,REF,REL,SCI,SCT,TXT
+690 NEXT L :: RESTORE 700 :: READ ART$,FIC$,HFT$,HST$,IRE$
+700 DATA Art,Fiction (FIC),Historical Fiction (HF),History (HST),Ireland (IRE)
+710 RESTORE 720 :: READ MUS$,NNF$,POL$,PTY$
+720 DATA Music (MUS),Non-Fiction (GNF),Politics (POL),Poetry (PTY)
+730 RESTORE 740 :: READ REF$,REL$,SCI$,SCT$,TXT$
+740 DATA Reference (REF),Religion (REL),Science (SCI),Scotland (SCT),Text (TXT)
+750 !*** SUBMENU ITEMS ***
+760 !*********************
+770 RESTORE 780 :: READ AUTHOR$,AN$
+780 DATA Search by Author,ENTER AUTHOR'S LAST NAME
+790 RESTORE 800 :: READ TITLE$,TTSCH$
+800 DATA Search by Title,ENTER TITLE (28 CHARS MAX)
+810 RESTORE 820 :: READ SUB$,ESUB$
+820 DATA Search by Subject,ENTER SUBJECT
+830 RESTORE 840 :: READ UDDF$
+840 DATA Load/Update/Save Data File
+850 RESTORE 860 :: READ BROWT$,PRNUM$
+860 DATA Browse by Title,Press # to view book info
+870 RESTORE 880 :: READ SORTT$,BEGST$
+880 DATA Sort Data File by Title,Press 'BEGIN' to start sort
+890 !*********************
+900 !*******************
+910 !** SPLASH SCREEN **
+920 !*******************
+930 CALL HPUT(7,10,LM4$,9,11,VER$,11,4,RXB$,21,9,BY$,23,5,CONT$)
+940 CALL KEY(0,K,S) :: IF S=0 THEN 940
+950 IF K=32 THEN 960 :: IF K<>32 THEN 940
+960 !******************
+970 !*** MAIN MENU ****
+980 !******************
+990 CALL CLEAR :: CALL HPUT(3,8,MITEM$(0),4,8,RPT$(CHR$(128),19))
+1000 FOR R=1 TO 8 :: CALL HPUT(2*R+4,6,MITEM$(R)) :: NEXT R
+1010 CALL KEY(0,K,S) :: IF S=0 THEN 1010
+1020 IF K=49 THEN 1110 !*** 1) BY AUTHOR
+1030 !IF K=50 THEN XXXX !** 2) BY TITLE
+1040 !IF K=51 THEN XXXX !** 3) BROWSE TITLE
+1050 !IF K=52 THEN XXXX !** 4) BY SUBJECT
+1060 !IF K=53 THEN XXXX !** 5) SORT BY TITLE
+1070 !IF K=54 THEN XXXX !** 6) LOAD/SAVE FILE
+1080 !IF K=55 THEN XXXX !** 7) QUIT TO RXB
+1090 !IF K=56 THEN XXXX !** 8) QUIT TO FWEB
+1100 IF K<49 OR K>56 THEN 1010
+1105 GOTO 1010 !*** TEMPORARY LOOP
+1110 !*********************
+1120 !*** AUTHOR SEARCH ***
+1130 !*********************
+1140 CALL CLEAR :: CALL HPUT(3,9,AUTHOR$,4,9,RPT$(CHR$(128),16)
+1150 CALL HPUT(7,5,AN$,11,4,SGTN$,13,2,CHKSP$,14,2,EEIC$,21,5,CLRSC$,23,4,BK$)
+1160 CALL KEY(0,K,S) :: IF S=0 THEN 1160
+1170 IF K=15 THEN 960
+1180 IF K=3 THEN GOSUB xxxx !** CLEAR SUB ROUTINE *
+1190 ACCEPT AT(9,3):SA$
+1200 IF LEN(SA$)=0 THEN 1160
+1210 DISPLAY AT(20,1):"CURRENT REC:"
+1220 FOR I=1 TO ROF :: DISPLAY AT(20,14):I
+1230 IF ATA$(I,1)=SA$ THEN GOSUB 1280
+1240 IF ATA$(I,2)=SA$ THEN GOSUB 1280
+1250 IF ATA$(I,3)=SA$ THEN GOSUB 1280
+1260 NEXT I :: GOTO 1160
+
+1290 CALL HPUT(11,2,ATA$(I,1),12,2,ATA$(I,2),13,2,ATA$(I,3),15,2,TTA$(I),16,2,SBJA$(x),17,2,NTA$(I))
+1300 DISPLAY AT(20,22):"REC";I
+1310 CALL KEY(0,K,S) :: IF S=0 THEN 1300
+1320 IF K=12 THEN RETURN
+1330 IF K=15 THEN 960
+1340 IF K=14 1160
+1350 GOTO 1300
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

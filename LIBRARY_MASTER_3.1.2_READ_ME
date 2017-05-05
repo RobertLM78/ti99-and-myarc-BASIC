@@ -1,0 +1,66 @@
+LIBRARY MASTER 3.1.2 READ ME
+FOR TI EXTENDED BASIC
+BY ROBERT LOCK (RobertLM78, beannachtai@hotmail.com)
+MAY 2013
+LICENSE: GPL 3.0
+
+***************************
+*** GENERAL INFORMATION ***
+***************************
+Thank you for taking a look at Library Master 3.1.2 for Extended Basic.  Library Master 3.1.2 can store 
+over 500 titles with up to 3 authors per title on one disk (disk will include the program itself and the 
+data file, LIBCAT, in RELATIVE,INTERNAL,FIXED 108 format).  
+NOTE: It is good practice to make a note of last record number in the file. You may also find that there 
+is enough disk space for more than 500 titles maximum, so adjust line 110 accordingly.
+
+******************************
+*** UPDATING THE DATA FILE ***
+******************************
+Upon selecting UPDATE DATA FILE (#4 in the menu), you will be prompted to enter a password.  The default 
+password is, you guessed it, PASSWORD (see line 2540 to change that).  A password is there to provide 
+some  "protection"  from  unwanted  or improperly entered records.   Updating  the data file is done by 
+establishing a for-loop.  You then will be prompted to input the first record number to be entered, then 
+the last record number to be entered (e.g. X to X for entering one record).  The program clears the 
+screen and then input prompts are given for the information about the book:
+
+AUTHOR #1(14): 
+AUTHOR #2:
+AUTHOR #3:
+TITLE(39): 
+SUBJECT(3): 
+NOTES(9): 
+
+Where the numbers in parentheses are the maximum number of characters allowed per entry.  You may choose 
+to enter just the author's last name, or last name and first initial¹.  For more on subjects, see that 
+section of this READ ME.  NOTES section is a small field of 9 characters max length for additional notes.  
+IMPORTANT: you cannot enter more than one title of the same name in the file, and will be prompted to 
+enter a different title if a duplicate is found.  This provides protection from identical entries.
+	
+**********************
+*** ABOUT SUBJECTS ***
+**********************
+This section of the program will take some adjustments to suite personal needs.  The section of the 
+program that is of interest are lines 1780-1910, 1930-2050, 2160, and 2180.  These lines control the 
+subject, so set them to match the kind of subjects in your library.  Of course, if there are not enough 
+categories, you can always insert additional lines as necessary.  NOTE: the program is set up to use a 
+3 character long abbreviation for the subject, so you will want to plan your subject abbreviations for 
+that condition.  Press AID to view subjects and BEGIN to start the search.
+
+*********************************************************
+*** GENERAL SEARCHING:  BY AUTHOR, TITLE, AND SUBJECT ***
+*********************************************************
+Searching is fairly straight forward, with one little 'trick' involved.  Inputting a zero length string 
+(i.e., simply hitting enter) for the ACCEPT AT *should* take you back to the CALL KEY so that you can 
+press BACK to return to the main menu or DEL to clear the information window, but the process can be 
+*slightly* touchy at times and you may need to press enter several times before the cursor disappears and 
+the program returns to the CALL KEY.
+
+**********************************
+** AUTHOR AND SUBJECT SEARCHING **
+**********************************
+Use PROC'D to step through 'hits' in the search.  Press PROC'D until the cursor re-appears or press BEGIN 
+to start another search. Additionally, if you wish to quit to the main menu while hit-stepping you may 
+press BACK.  (Hit-stepping, of course, is limited to these searches - as you may recall, the titles are 
+all unique).
+-----------------------------------------------------------------------------------------------------------
+1. If you decide to enter a first intial, your searches will have include the intial as well.
