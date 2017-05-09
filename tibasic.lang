@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 tibasic.lang for PLUMA and GEDIT
-
+ 
 Author:  5/2017 Robert Lock - License: GPL v 3
 
  This library is free software; you can redistribute it and/or
@@ -26,7 +26,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
     <property name="line-comment-start">!</property>
     <property name="line-comment-start">REM</property>
   </metadata>
-
+ 
   <styles>
     <style id="comment" _name="Comment" map-to="def:comment"/>
     <style id="string" _name="String" map-to="def:string"/>
@@ -38,9 +38,9 @@ Author:  5/2017 Robert Lock - License: GPL v 3
 
 
   </styles>
-
+ 
   <default-regex-options case-sensitive="true"/>
-
+ 
   <definitions>
 
 
@@ -57,9 +57,10 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <end>"</end>
     </context>
 
-
+    
     <context id="keywords" style-ref="function">
 	  <suffix>(?![\w\d_-])</suffix>
+	  <keyword>ABS</keyword>
       <keyword>ACCEPT</keyword>
       <keyword>ASC</keyword>
       <keyword>BYE</keyword>
@@ -130,7 +131,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>VCHAR</keyword>
       <keyword>VERSION</keyword>
     </context>
-
+    
     <context id="flow-control" style-ref="keyword">
       <keyword>AT</keyword>
       <keyword>BREAK</keyword>
@@ -153,7 +154,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>UNBREAK</keyword>
       <keyword>UNTRACE</keyword>
     </context>
-
+    
     <context id="subroutine" style-ref="keyword">
       <keyword>CALL</keyword>
       <keyword>GOSUB</keyword>
@@ -162,14 +163,14 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>SUBEND</keyword>
       <keyword>SUBEXIT</keyword>
     </context>
-
+    
     <context id="operator" style-ref="operator">
       <keyword>AND</keyword>
       <keyword>NOT</keyword>
       <keyword>OR</keyword>
       <keyword>XOR</keyword>
     </context>
-
+ 
     <context id="function" style-ref="function">
       <keyword>ATN</keyword>
       <keyword>COS</keyword>
@@ -181,7 +182,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>SQR</keyword>
       <keyword>TAN</keyword>
     </context>
-
+ 
    <context id="tibasic" class="no-spell-check">
       <include>
         <context ref="line-comment"/>
@@ -193,7 +194,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
         <context ref="function"/>
       </include>
     </context>
-
+ 
   </definitions>
-
+ 
 </language>
