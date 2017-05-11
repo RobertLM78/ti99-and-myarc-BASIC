@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+myarcbasic.lang for PLUMA and GEDIT
+
+Author:  5/2017 Robert Lock - License: GPL v 3
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+
+ You should have received a copy of the GNU Library General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ Boston, MA 02111-1307, USA.
+-->
+<language id="myarcbasic" _name="Myarc-BASIC" version="2.0" _section="Sources">
+  <metadata>
+    <property name="mimetypes">text/x-myarcbasic</property>
+    <property name="globs">*.myb</property>
+    <property name="line-comment-start">!</property>
+    <property name="line-comment-start">REM</property>
+  </metadata>
+
+  <styles>
+    <style id="comment" _name="Comment" map-to="def:comment"/>
+    <style id="string" _name="String" map-to="def:string"/>
+    <style id="keyword" _name="Keyword" map-to="def:keyword"/>
+    <style id="flow-control" _name="Flow-Control" map-to="def:keyword"/>
+    <style id="subroutine" _name="Subroutine" map-to="def:keyword"/>
+    <style id="operator" _name="Operator" map-to="def:operator"/>
+    <style id="function" _name="Function" map-to="def:function"/>
+
+
+  </styles>
+
+  <default-regex-options case-sensitive="true"/>
+
+  <definitions>
+
+
+    <context id="line-comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+      <start>REM|!</start>
+      <include>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+
+
+    <context id="string" style-ref="string" end-at-line-end="true" class="string" class-disabled="no-spell-check">
+      <start>"|DATA</start>
+      <end>"</end>
+    </context>
+
+
+    <context id="keywords" style-ref="function">
+	  <suffix>(?![\w\d_-])</suffix>
+      <keyword>ACCEPT</keyword>
+      <keyword>ASC</keyword>
+      <keyword>ATN</keyword>
+      <keyword>BEEP</keyword>
+      <keyword>BTIME</keyword>
+      <keyword>BYE</keyword>
+      <keyword>CHAR</keyword>
+      <keyword>CHARPAT</keyword>
+      <keyword>CHARSET</keyword>
+      <keyword>CHR\$</keyword>  <!-- $ -->
+      <keyword>CINT</keyword>
+      <keyword>CIRCLE</keyword>
+      <keyword>CLEAR</keyword>
+      <keyword>CLOSE</keyword>
+      <keyword>CLS</keyword>
+      <keyword>CSNG</keyword>
+      <keyword>COINC</keyword>
+      <keyword>COLOR</keyword>
+      <keyword>DATA</keyword> <!--duplicate - being used as commentor -->
+      <keyword>DATE\$</keyword>
+      <keyword>DCOLOR</keyword>
+      <keyword>DEF</keyword>
+      <keyword>DELETE</keyword>
+      <keyword>DELSPRITE</keyword>
+      <keyword>DIM</keyword>
+      <keyword>DISPLAY</keyword>
+      <keyword>USING</keyword>
+      <keyword>DISTANCE</keyword>
+      <keyword>EOF</keyword>
+      <keyword>FILES</keyword>
+      <keyword>FILL</keyword>
+      <keyword>FREESPACE</keyword>
+      <keyword>GCHAR</keyword>
+      <keyword>GRAPHICS</keyword>
+      <keyword>HCHAR</keyword>
+      <keyword>HEX\$</keyword>
+      <keyword>IMAGE</keyword>
+      <keyword>INIT</keyword>
+      <keyword>INPUT</keyword>
+      <keyword>INT</keyword>
+      <keyword>JOYST</keyword>
+      <keyword>KEY</keyword>
+      <keyword>KILL</keyword>
+      <keyword>LEFT\$</keyword>
+      <keyword>LEN</keyword>
+      <keyword>LET</keyword>
+      <keyword>LINK</keyword>
+      <keyword>LINPUT</keyword>
+      <keyword>LIST</keyword>
+      <keyword>LLIST</keyword>
+      <keyword>LOAD</keyword>
+      <keyword>LOCATE</keyword>
+      <keyword>LPR</keyword>
+      <keyword>LPT</keyword>
+	  <keyword>LTRACE</keyword>
+      <keyword>MAGNIFY</keyword>
+	  <keyword>MARGIN</keyword>
+      <keyword>MAX</keyword>
+	  <keyword>MEMSET</keyword>
+      <keyword>MERGE</keyword>
+      <keyword>MIN</keyword>
+	  <keyword>MOD</keyword>
+      <keyword>MOTION</keyword>
+	  <keyword>MOUSE</keyword>
+      <keyword>NUMBER</keyword>
+      <keyword>OPEN</keyword>
+      <keyword>OPTION BASE</keyword>
+	  <keyword>OUT</keyword>
+      <keyword>PATTERN</keyword>
+      <keyword>PEEK</keyword>
+	  <keyword>PEEKV</keyword>
+	  <keyword>POINT</keyword>
+	  <keyword>POKEV</keyword>
+      <keyword>POS</keyword>
+      <keyword>POSITION</keyword>
+	  <keyword>PPR</keyword>
+      <keyword>PRINT</keyword>
+      <keyword>PRINT USING</keyword>
+      <keyword>RANDOMIZE</keyword>
+      <keyword>READ</keyword>
+      <keyword>REC</keyword>
+      <keyword>RECTANGLE</keyword>
+	  <keyword>REM</keyword>
+      <keyword>RESTORE</keyword>
+      <keyword>RIGHT\$</keyword>
+      <keyword>RND</keyword>
+      <keyword>RPT\$</keyword> <!-- $ -->
+      <keyword>RUN</keyword>
+      <keyword>SAY</keyword>
+      <keyword>SCREEN</keyword>
+      <keyword>SEG\$</keyword> <!-- $ -->
+      <keyword>SOUND</keyword>
+      <keyword>SPEED</keyword>
+      <keyword>SPGET</keyword>
+      <keyword>SPRITE</keyword>
+      <keyword>STOP</keyword>
+      <keyword>STR\$</keyword> <!-- $ -->
+      <keyword>SWAP</keyword>
+      <keyword>TAB</keyword>
+      <keyword>TERMCHAR</keyword>
+      <keyword>TIME\$</keyword>
+      <keyword>VAL</keyword>
+      <keyword>VCHAR</keyword>
+      <keyword>VERSION</keyword>
+    </context>
+
+    <context id="flow-control" style-ref="keyword">
+      <keyword>AT</keyword>
+      <keyword>BREAK</keyword>
+      <keyword>CONTINUE</keyword>
+      <keyword>ELSE</keyword>
+      <keyword>ERR</keyword>
+      <keyword>FOR</keyword>
+      <keyword>GOTO</keyword>
+      <keyword>IF</keyword>
+      <keyword>NEXT</keyword>
+      <keyword>ON BREAK</keyword>
+      <keyword>ON ERROR</keyword>
+      <keyword>ON GOSUB</keyword>
+      <keyword>ON GOTO</keyword>
+      <keyword>ON WARNING</keyword>
+      <keyword>STEP</keyword>
+      <keyword>THEN</keyword>
+      <keyword>TO</keyword>
+      <keyword>TRACE</keyword>
+      <keyword>UNBREAK</keyword>
+      <keyword>UNTRACE</keyword>
+      <keyword>WEND</keyword>
+      <keyword>WHILE</keyword>
+    </context>
+
+    <context id="subroutine" style-ref="keyword">
+      <keyword>CALL</keyword>
+      <keyword>END</keyword>
+      <keyword>GOSUB</keyword>
+      <keyword>RETURN</keyword>
+      <keyword>SUB</keyword>
+      <keyword>SUBEND</keyword>
+      <keyword>SUBEXIT</keyword>
+    </context>
+
+    <context id="operator" style-ref="operator">
+      <keyword>AND</keyword>
+      <keyword>NOT</keyword>
+      <keyword>OR</keyword>
+      <keyword>XOR</keyword>
+    </context>
+
+    <context id="function" style-ref="function">
+	  <keyword>ABS</keyword>
+      <keyword>ATN</keyword>
+      <keyword>COS</keyword>
+      <keyword>EXP</keyword>
+      <keyword>LOG</keyword>
+      <keyword>PI</keyword>
+      <keyword>SGN</keyword>
+      <keyword>SIN</keyword>
+      <keyword>SQR</keyword>
+      <keyword>TAN</keyword>
+    </context>
+
+   <context id="myarcbasic" class="no-spell-check">
+      <include>
+        <context ref="line-comment"/>
+        <context ref="string"/>
+		<context ref="keywords"/>
+		<context ref="flow-control"/>
+		<context ref="subroutine"/>
+        <context ref="operator"/>
+        <context ref="function"/>
+      </include>
+    </context>
+
+  </definitions>
+
+</language>
