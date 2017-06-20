@@ -61,6 +61,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
     <context id="keywords" style-ref="function">
 	  <suffix>(?![\w\d_-])</suffix>
       <keyword>ACCEPT</keyword>
+      <keyword>APPEND</keyword>
       <keyword>ASC</keyword>
       <keyword>ATN</keyword>
       <keyword>BEEP</keyword>
@@ -91,6 +92,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>EOF</keyword>
       <keyword>FILES</keyword>
       <keyword>FILL</keyword>
+      <keyword>FIXED</keyword>
       <keyword>FREESPACE</keyword>
       <keyword>GCHAR</keyword>
       <keyword>GRAPHICS</keyword>
@@ -100,6 +102,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>INIT</keyword>
       <keyword>INPUT</keyword>
       <keyword>INT</keyword>
+      <keyword>INTERNAL</keyword>
       <keyword>JOYST</keyword>
       <keyword>KEY</keyword>
       <keyword>KILL</keyword>
@@ -128,9 +131,11 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>OPEN</keyword>
       <keyword>OPTION BASE</keyword>
 	  <keyword>OUT</keyword>
+      <keyword>OUTPUT</keyword>
       <keyword>PATTERN</keyword>
       <keyword>PEEK</keyword>
 	  <keyword>PEEKV</keyword>
+      <keyword>PERMANENT</keyword>
 	  <keyword>POINT</keyword>
 	  <keyword>POKEV</keyword>
       <keyword>POS</keyword>
@@ -142,6 +147,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>READ</keyword>
       <keyword>REC</keyword>
       <keyword>RECTANGLE</keyword>
+      <keyword>RELATIVE</keyword>
 	  <keyword>REM</keyword>
       <keyword>RESTORE</keyword>
       <keyword>RIGHT\$</keyword>
@@ -151,6 +157,7 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>SAY</keyword>
       <keyword>SCREEN</keyword>
       <keyword>SEG\$</keyword> <!-- $ -->
+      <keyword>SEQUENTIAL</keyword>
       <keyword>SOUND</keyword>
       <keyword>SPEED</keyword>
       <keyword>SPGET</keyword>
@@ -161,7 +168,9 @@ Author:  5/2017 Robert Lock - License: GPL v 3
       <keyword>TAB</keyword>
       <keyword>TERMCHAR</keyword>
       <keyword>TIME\$</keyword>
+      <keyword>UPTDATE</keyword>
       <keyword>VAL</keyword>
+      <keyword>VARIABLE</keyword>
       <keyword>VCHAR</keyword>
       <keyword>VERSION</keyword>
     </context>
